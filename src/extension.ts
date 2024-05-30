@@ -38,7 +38,7 @@ interface CCPPConfigurationItem {
 	includePath: string[];
 	defines: string[];
 	compilerPath: string;
-	intellisenseMode: string;
+	intelliSenseMode: string;
 }
 
 let nuMakePath: string | undefined;
@@ -142,7 +142,7 @@ function inspect(
 							),
 						defines: target.defines,
 						compilerPath: target.vscode_properties.compiler_path,
-						intellisenseMode:
+						intelliSenseMode:
 							target.vscode_properties.intellisense_mode,
 					};
 
