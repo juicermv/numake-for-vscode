@@ -15,11 +15,9 @@ jobs:
         steps:
             - uses: actions/checkout@v4
 
-            - run: curl -fsSL https://bun.sh/install | bash
+            - run: npm install -g @vscode/vsce
 
-            - run: bun install -g @vscode/vsce
-
-            - run: bun install
+            - run: npm install
 
             - run: vsce package
 
