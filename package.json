@@ -3,6 +3,7 @@
   "displayName": "nuMake For VSCode",
   "description": "nuMake support for VSCode.",
   "version": "0.0.1",
+  "repository": "https://github.com/juicermv/numake-for-vscode",
   "engines": {
     "vscode": "^1.89.0"
   },
