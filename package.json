@@ -1,7 +1,7 @@
 {
-  "name": "numake",
-  "displayName": "NuMake",
-  "description": "NuMake support for VSCode.",
+  "name": "numake-for-vscode",
+  "displayName": "nuMake For VSCode",
+  "description": "nuMake support for VSCode.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.89.0"
@@ -17,11 +17,15 @@
     "commands": [
       {
         "command": "numake.refresh",
-        "title": "NuMake: Refresh"
+        "title": "nuMake: Refresh"
       },
       {
         "command": "numake.selectTarget",
-        "title": "Numake: Select Target"
+        "title": "nuMake: Select Target"
+      },
+      {
+        "command": "numake.build",
+        "title": "nuMake: Build"
       }
     ],
     "configuration": {
