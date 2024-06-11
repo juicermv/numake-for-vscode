@@ -67,6 +67,7 @@ async function select() {
 }
 
 async function build() {
+	inspect()
 	while (selectedTarget === undefined || !targets.includes(selectedTarget)) {
 		await select();
 	}
