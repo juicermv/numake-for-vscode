@@ -50,7 +50,7 @@ let selectedTarget: string | undefined;
 
 let output: vscode.OutputChannel;
 
-async function select() {
+async function select(callback: ((selection: string) => void) | undefined = undefined) {
 	inspect(async (targets) => {
 		if (targets.length > 0) {
 			selectedTarget = await vscode.window.showQuickPick(targets, {
@@ -60,6 +60,10 @@ async function select() {
 			await vscode.commands.executeCommand('C_Cpp.ConfigurationSelect', [
 				selectedTarget,
 			]);
+
+			if (callback !== undefined && selectedTarget !== undefined) {
+				callback(selectedTarget)
+			}
 		} else {
 			vscode.window.showWarningMessage('No targets were found!');
 		}
@@ -67,11 +71,16 @@ async function select() {
 }
 
 async function build() {
-	inspect()
-	while (selectedTarget === undefined || !targets.includes(selectedTarget)) {
-		await select();
+	if (selectedTarget === undefined || !targets.includes(selectedTarget)) {
+		await select(async (target) =>{
+			buildTarget()
+		});
+	} else {
+		await buildTarget()
 	}
+}
 
+async function buildTarget() {
 	if (nuMakePath === undefined) {
 		vscode.window.showErrorMessage('nuMake executable path not provided!');
 		return;
